@@ -1,8 +1,8 @@
 install:
 	npm ci
-gendiff:
-	node bin/gendiff.js
 publish:
 	npm publish --dry-run
 link:
 	sudo npm link
+json-diff-without-format:
+	gendiff __fixtures__/file1.json __fixtures__/file2.json

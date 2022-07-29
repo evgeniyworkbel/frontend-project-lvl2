@@ -3,18 +3,16 @@ import { program } from 'commander';
 import genDiff from '../src/index.js';
 
 program
-  .version('')
-  .description('Compares two configuration files and shows a difference.')
+  .version('1.0.0')
+  .description('Compares two configuration files and shows a difference.');
 
- program
+program
   .argument('<filepath1>')
   .argument('<filepath2>')
-  .action(genDiff)
+  .action(genDiff);
 
 program
-  .option('-f, --format <type>', 'output format')
+  .option('-f, --format <type>', 'output format');
 
 program
-  .parse(process.argv)
-
-
+  .parse(process.argv);

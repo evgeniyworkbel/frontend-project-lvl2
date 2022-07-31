@@ -11,8 +11,8 @@ jobs:
           node-version: 16
           cache: 'npm'
 
-      run: make install
-      run: make lint
+      - run: make install
+      - run: make lint
 
       - name: Test & publish code coverage
         # Publish code coverage on Code Climate

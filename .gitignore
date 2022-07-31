@@ -1,1 +1,4 @@
 node_modules
+
+# This directory uses for a CodeClimate
+/coverage

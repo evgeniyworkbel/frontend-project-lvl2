@@ -1,0 +1,6 @@
+---
+# Lines 3 and 5 contains different types of quotes to test this example of YAML files
+host: 'hexlet.io'
+timeout: 50
+"proxy": 123.234.53.22
+follow: false

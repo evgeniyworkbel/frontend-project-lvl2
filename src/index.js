@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
+import parse from './parsers.js';
 
 const getExtension = (filepath) => path.extname(filepath);
 const getAbsolutePath = (filepath) => path.resolve(filepath);
@@ -10,10 +11,8 @@ export default (fpath1, fpath2) => {
   const ext1 = getExtension(fpath1);
   const ext2 = getExtension(fpath2);
 
-  if (ext1 !== ext2) return console.log('Extensions of files does not matches');
-
-  const parsedFile1 = JSON.parse(readFileSync(getAbsolutePath(fpath1)));
-  const parsedFile2 = JSON.parse(readFileSync(getAbsolutePath(fpath2)));
+  const parsedFile1 = parse(readFileSync(getAbsolutePath(fpath1)), ext1);
+  const parsedFile2 = parse(readFileSync(getAbsolutePath(fpath2)), ext2);
 
   const keys = _.union(Object.keys(parsedFile1), Object.keys(parsedFile2));
   const sortedKeys = _.sortBy(keys);

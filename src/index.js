@@ -2,41 +2,65 @@ import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 import parse from './parsers.js';
+import makeStylish from './formatters/stylish.js';
 
 const getExtension = (filepath) => path.extname(filepath);
 const getAbsolutePath = (filepath) => path.resolve(filepath);
 const readFileSync = (filepath) => fs.readFileSync(filepath, 'utf-8');
+const initTree = (name, status, children = [], oldValue = '', freshValue = '') => ({
+  name,
+  status,
+  children,
+  oldValue,
+  freshValue,
+});
 
-export default (fpath1, fpath2) => {
+export default (fpath1, fpath2, formatName = 'stylish') => {
   const ext1 = getExtension(fpath1);
   const ext2 = getExtension(fpath2);
 
   const parsedFile1 = parse(readFileSync(getAbsolutePath(fpath1)), ext1);
   const parsedFile2 = parse(readFileSync(getAbsolutePath(fpath2)), ext2);
 
-  const keys = _.union(Object.keys(parsedFile1), Object.keys(parsedFile2));
-  const sortedKeys = _.sortBy(keys);
+  const buildASTtree = (obj1, obj2) => {
+    const sortedKeys = _.sortBy(_.union(Object.keys(obj1), Object.keys(obj2)));
 
-  const result = sortedKeys
-    .map((key) => {
-      const value1 = parsedFile1[key];
-      const value2 = parsedFile2[key];
+    const packedTree = sortedKeys.map((key) => {
+      const value1 = obj1[key];
+      const value2 = obj2[key];
 
-      if (key in parsedFile1 && key in parsedFile2) {
-        if (value1 === value2) return `    ${key}: ${value1}`;
+      const node = initTree(key, '', [], value1, value2);
 
-        return `  - ${key}: ${value1}\n  + ${key}: ${value2}`;
+      if (key in obj1 && key in obj2) {
+        if (_.isObject(value1) && _.isObject(value2)) {
+          node.status = 'unchanged';
+          node.children = buildASTtree(value1, value2);
+          // Reset oldValue and freshValue for convenient debugging (only in this case)
+          node.oldValue = '';
+          node.freshValue = '';
+        } else if (value1 === value2) {
+          node.status = 'unchanged';
+        } else {
+          node.status = 'modified';
+        }
+        return node;
       }
 
-      if (key in parsedFile1) return `  - ${key}: ${value1}`;
+      if (key in obj1) {
+        node.status = 'deleted';
+      }
 
-      return `  + ${key}: ${value2}`;
-    })
-    .join('\n')
-    .trim();
+      if (key in obj2) {
+        node.status = 'added';
+      }
 
-  const newResult = `{\n  ${result}\n}`;
-  console.log(newResult);
+      return node;
+    });
 
-  return newResult;
+    return packedTree;
+  };
+
+  const ASTtree = buildASTtree(parsedFile1, parsedFile2);
+  const result = (formatName === 'stylish') ? makeStylish(ASTtree) : null;
+  return result;
 };

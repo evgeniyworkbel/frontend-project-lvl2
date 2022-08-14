@@ -40,7 +40,7 @@ export const stylish = (coll, replacer = ' ', spacesCount = 2) => {
         return `${commonIndent}  ${name}: ${iter(children, depth + 2)}`;
       }
 
-      if (status === 'modified') {
+      if (status === 'updated') {
         return `${commonIndent}- ${name}: ${oldValueAsString}`
         + '\n'
         + `${commonIndent}+ ${name}: ${freshValueAsString}`;
@@ -49,7 +49,7 @@ export const stylish = (coll, replacer = ' ', spacesCount = 2) => {
       if (status === 'added') {
         return `${commonIndent}+ ${name}: ${freshValueAsString}`;
       }
-      if (status === 'deleted') {
+      if (status === 'removed') {
         return `${commonIndent}- ${name}: ${oldValueAsString}`;
       }
 

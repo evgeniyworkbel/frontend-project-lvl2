@@ -19,3 +19,6 @@
 
 #### Plain difference between 2 nested JSON or YAML files 
 [![asciicast](https://asciinema.org/a/285HG9AH0LcRGYB2TOzJwysL2.svg)](https://asciinema.org/a/285HG9AH0LcRGYB2TOzJwysL2)
+
+### Difference between 2 nested JSON or YAML files in JSON format
+[![asciicast](https://asciinema.org/a/6ILMlTwenQ5NL35c5LL2NGnev.svg)](https://asciinema.org/a/6ILMlTwenQ5NL35c5LL2NGnev)

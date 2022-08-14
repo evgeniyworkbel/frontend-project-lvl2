@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 import parse from './parsers.js';
-import makeStylish from './formatters/stylish.js';
+import formatOutput from './formatters/index.js';
 
 const getExtension = (filepath) => path.extname(filepath);
 const getAbsolutePath = (filepath) => path.resolve(filepath);
@@ -41,13 +41,13 @@ export default (fpath1, fpath2, formatName = 'stylish') => {
         } else if (value1 === value2) {
           node.status = 'unchanged';
         } else {
-          node.status = 'modified';
+          node.status = 'updated';
         }
         return node;
       }
 
       if (key in obj1) {
-        node.status = 'deleted';
+        node.status = 'removed';
       }
 
       if (key in obj2) {
@@ -61,6 +61,5 @@ export default (fpath1, fpath2, formatName = 'stylish') => {
   };
 
   const ASTtree = buildASTtree(parsedFile1, parsedFile2);
-  const result = (formatName === 'stylish') ? makeStylish(ASTtree) : null;
-  return result;
+  return formatOutput(ASTtree, formatName);
 };

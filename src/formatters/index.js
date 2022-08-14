@@ -1,5 +1,6 @@
 import makePlain from './plain.js';
 import makeStylish from './stylish.js';
+import makeJSON from './json.js';
 
 export default (data, format) => {
   let output;
@@ -10,8 +11,11 @@ export default (data, format) => {
     case 'plain':
       output = makePlain(data);
       break;
+    case 'json':
+      output = makeJSON(data);
+      break;
     default:
-      console.log(`Given format '${format}' doesn't support`);
+      throw new Error(`Given format '${format}' doesn't support`);
   }
 
   return output;

@@ -1,29 +1,54 @@
-# Description:
+# Description
 [![Actions Status](https://github.com/evgeniyworkbel/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/evgeniyworkbel/frontend-project-lvl2/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f72446949e592e8ca39c/maintainability)](https://codeclimate.com/github/evgeniyworkbel/frontend-project-lvl2/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f72446949e592e8ca39c/test_coverage)](https://codeclimate.com/github/evgeniyworkbel/frontend-project-lvl2/test_coverage)
 
 Difference generator - a program which determines differences between two data structures, generates a report and format an output in different ways. It takes a JSON/YAML files as input and outputs as stylish/plain/json format.
 
-### Setup:
-    $ make install
-    $ make link
+## Installation
 
-### Tests and linters:
-    $ make lint
-    $ make test
-    $ make test-coverage
+1. Clone the repository:
+```
+$ git clone git@github.com:evgeniyworkbel/frontend-project-lvl2.git (via SSH)
+$ git clone https://github.com/evgeniyworkbel/frontend-project-lvl2.git (via HTTPS)
+$ git clone gh repo clone evgeniyworkbel/frontend-project-lvl2 (via GitHub CLI)
+```
 
-### Usage:
-    $ gendiff [options] <filepath1> <filepath2>
+2. Change the working directory:
+```
+$ cd frontend-project-lvl2
+```
 
+3. Install dependencies:
+```
+$ make install
+```
+
+If you want to install package globally in your system you should run:
+```
+$ make link
+```
+And don't remember rerun this command in case of changes package.json!
+
+
+#### Tests and linters:
+```
+$ make lint
+$ make test
+$ make test-coverage
+```
+
+## Usage:
+```
+$ gendiff [options] <filepath1> <filepath2>
+```
 _Options:_
-
+```
     -V, --version        output the version number
     -f, --format <type>  output format: stylish, plain, json (default: "stylish")
     -h, --help           display help for command
-
-### Demo:
+```
+## Demo:
 #### 1. Output of help and version
 [![asciicast](https://asciinema.org/a/wl1NSwCQms6RwrEJV4txxkYuI.svg)](https://asciinema.org/a/wl1NSwCQms6RwrEJV4txxkYuI)
 

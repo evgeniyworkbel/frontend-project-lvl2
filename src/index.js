@@ -24,11 +24,9 @@ export default (fpath1, fpath2, formatName = 'stylish') => {
 
   const buildASTtree = (obj1, obj2) => {
     const sortedKeys = _.sortBy(_.union(Object.keys(obj1), Object.keys(obj2)));
-
     const packedTree = sortedKeys.map((key) => {
       const value1 = obj1[key];
       const value2 = obj2[key];
-
       const node = initTree(key, '', [], value1, value2);
 
       if (key in obj1 && key in obj2) {

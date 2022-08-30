@@ -12,20 +12,15 @@ const buildEnding = (status, previousValue, newValue) => {
   const preparedPreviousValue = prepareValue(previousValue);
   const preparedNewValue = prepareValue(newValue);
 
-  let ending = '';
   switch (status) {
     case 'updated':
-      ending = `${status}. From ${preparedPreviousValue} to ${preparedNewValue}`;
-      break;
+      return `${status}. From ${preparedPreviousValue} to ${preparedNewValue}`;
     case 'added':
-      ending = `${status} with value: ${preparedNewValue}`;
-      break;
+      return `${status} with value: ${preparedNewValue}`;
     case 'removed':
     default:
-      ending = `${status}`;
+      return `${status}`;
   }
-
-  return ending;
 };
 
 const plain = (coll) => {

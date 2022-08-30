@@ -3,20 +3,14 @@ import makeStylish from './stylish.js';
 import makeJSON from './json.js';
 
 export default (data, format) => {
-  let output;
   switch (format) {
     case 'stylish':
-      output = makeStylish(data);
-      break;
+      return makeStylish(data);
     case 'plain':
-      output = makePlain(data);
-      break;
+      return makePlain(data);
     case 'json':
-      output = makeJSON(data);
-      break;
+      return makeJSON(data);
     default:
       throw new Error(`Given format '${format}' doesn't support`);
   }
-
-  return output;
 };

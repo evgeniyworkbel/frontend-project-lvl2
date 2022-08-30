@@ -9,54 +9,66 @@ const __dirname = path.dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-// Tests for STYLISH output format
-test('genDiff (json-json)', () => {
-  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toEqual(readFile('expectedStylish.txt'));
+const filepath1 = getFixturePath('file1.json');
+const filepath2 = getFixturePath('file2.json');
+const filepath3 = getFixturePath('file3.yml');
+const filepath4 = getFixturePath('file4.yaml');
+
+const stylishFile = readFile('expectedStylish.txt');
+const plainFile = readFile('expectedPlain.txt');
+const jsonFile = readFile('expectedJSON.json');
+
+describe('genDiff function (stylish format)', () => {
+  test('between json-json files', () => {
+    expect(genDiff(filepath1, filepath2)).toEqual(stylishFile);
+  });
+
+  // According to off. docs YAML can take as .yml as .yaml extensions
+  test('between yml-yaml files', () => {
+    expect(genDiff(filepath3, filepath4)).toEqual(stylishFile);
+  });
+
+  test('between json-yaml files', () => {
+    expect(genDiff(filepath1, filepath4)).toEqual(stylishFile);
+  });
+
+  test('between json-yml files', () => {
+    expect(genDiff(filepath3, filepath2)).toEqual(stylishFile);
+  });
 });
 
-// According to off. docs YAML can take as .yml as .yaml extensions
-test('genDiff (yml-yaml)', () => {
-  expect(genDiff(getFixturePath('file3.yml'), getFixturePath('file4.yaml'))).toEqual(readFile('expectedStylish.txt'));
+describe('gendiff function (plain format)', () => {
+  test('between json-json files', () => {
+    expect(genDiff(filepath1, filepath2, 'plain')).toEqual(plainFile);
+  });
+
+  test('between yml-yaml files', () => {
+    expect(genDiff(filepath3, filepath4, 'plain')).toEqual(plainFile);
+  });
+
+  test('between json-yaml files', () => {
+    expect(genDiff(filepath1, filepath4, 'plain')).toEqual(plainFile);
+  });
+
+  test('between json-yml files', () => {
+    expect(genDiff(filepath3, filepath2, 'plain')).toEqual(plainFile);
+  });
 });
 
-test('genDiff (json-yaml)', () => {
-  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file4.yaml'))).toEqual(readFile('expectedStylish.txt'));
-});
+describe('gendiff function (JSON format)', () => {
+  test('between json-json files', () => {
+    expect(genDiff(filepath1, filepath2, 'json')).toEqual(jsonFile);
+  });
 
-test('genDiff (json-yml)', () => {
-  expect(genDiff(getFixturePath('file3.yml'), getFixturePath('file2.json'))).toEqual(readFile('expectedStylish.txt'));
-});
+  test('between yml-yaml files', () => {
+    expect(genDiff(filepath3, filepath4, 'json')).toEqual(jsonFile);
+  });
 
-// Tests for PLAIN output format
-test('genDiff (json-json)', () => {
-  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'plain')).toEqual(readFile('expectedPlain.txt'));
-});
+  test('between json-yaml files', () => {
+    expect(genDiff(filepath1, filepath4, 'json')).toEqual(jsonFile);
+  });
 
-test('genDiff (yml-yaml)', () => {
-  expect(genDiff(getFixturePath('file3.yml'), getFixturePath('file4.yaml'), 'plain')).toEqual(readFile('expectedPlain.txt'));
-});
-
-test('genDiff (json-yaml)', () => {
-  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file4.yaml'), 'plain')).toEqual(readFile('expectedPlain.txt'));
-});
-
-test('genDiff (json-yml)', () => {
-  expect(genDiff(getFixturePath('file3.yml'), getFixturePath('file2.json'), 'plain')).toEqual(readFile('expectedPlain.txt'));
-});
-
-// Tests for JSON output format
-test('genDiff (json-json)', () => {
-  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'json')).toEqual(readFile('expectedJSON.json'));
-});
-
-test('genDiff (yml-yaml)', () => {
-  expect(genDiff(getFixturePath('file3.yml'), getFixturePath('file4.yaml'), 'json')).toEqual(readFile('expectedJSON.json'));
-});
-
-test('genDiff (json-yaml)', () => {
-  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file4.yaml'), 'json')).toEqual(readFile('expectedJSON.json'));
-});
-
-test('genDiff (json-yml)', () => {
-  expect(genDiff(getFixturePath('file3.yml'), getFixturePath('file2.json'), 'json')).toEqual(readFile('expectedJSON.json'));
+  test('between json-yml files', () => {
+    expect(genDiff(filepath3, filepath2, 'json')).toEqual(jsonFile);
+  });
 });

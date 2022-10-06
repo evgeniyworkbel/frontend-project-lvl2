@@ -7,11 +7,9 @@ Difference generator - a program which determines differences between two data s
 
 ## Installation
 
-1. Clone the repository:
+1. Clone the repository (via SSH or HTTPS orGitHub CLI):
 ```
-$ git clone git@github.com:evgeniyworkbel/frontend-project-lvl2.git (via SSH)
-$ git clone https://github.com/evgeniyworkbel/frontend-project-lvl2.git (via HTTPS)
-$ git clone gh repo clone evgeniyworkbel/frontend-project-lvl2 (via GitHub CLI)
+$ git clone <your link> 
 ```
 
 2. Change the working directory:

@@ -7,7 +7,7 @@ Difference generator - a program which determines differences between two data s
 
 ## Installation
 
-1. Clone the repository (via SSH or HTTPS orGitHub CLI):
+1. Clone the repository (via SSH or HTTPS or GitHub CLI):
 ```
 $ git clone <your link> 
 ```

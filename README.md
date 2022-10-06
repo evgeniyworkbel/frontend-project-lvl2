@@ -1,7 +1,8 @@
-# Description
 [![Actions Status](https://github.com/evgeniyworkbel/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/evgeniyworkbel/frontend-project-lvl2/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f72446949e592e8ca39c/maintainability)](https://codeclimate.com/github/evgeniyworkbel/frontend-project-lvl2/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f72446949e592e8ca39c/test_coverage)](https://codeclimate.com/github/evgeniyworkbel/frontend-project-lvl2/test_coverage)
+
+# Description
 
 Difference generator - a program which determines differences between two data structures, generates a report and format an output in different ways. It takes a JSON/YAML files as input and outputs as stylish/plain/json format.
 

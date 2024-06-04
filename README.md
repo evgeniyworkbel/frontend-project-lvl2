@@ -1,3 +1,8 @@
+<div align="center">
+  <img src="assets/banner.png" alt="JSON and YAML data formats">
+</div>
+
+
 [![Actions Status](https://github.com/evgeniyworkbel/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/evgeniyworkbel/frontend-project-lvl2/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f72446949e592e8ca39c/maintainability)](https://codeclimate.com/github/evgeniyworkbel/frontend-project-lvl2/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f72446949e592e8ca39c/test_coverage)](https://codeclimate.com/github/evgeniyworkbel/frontend-project-lvl2/test_coverage)

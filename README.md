@@ -3,9 +3,17 @@
 </div>
 
 
-[![Actions Status](https://github.com/evgeniyworkbel/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/evgeniyworkbel/frontend-project-lvl2/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/f72446949e592e8ca39c/maintainability)](https://codeclimate.com/github/evgeniyworkbel/frontend-project-lvl2/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/f72446949e592e8ca39c/test_coverage)](https://codeclimate.com/github/evgeniyworkbel/frontend-project-lvl2/test_coverage)
+<p align="center">
+  <a href="https://github.com/evgeniyworkbel/frontend-project-lvl2/actions">
+    <img alt="Actions Status" src="https://github.com/evgeniyworkbel/frontend-project-lvl2/workflows/hexlet-check/badge.svg">
+  </a>
+  <a href="https://codeclimate.com/github/evgeniyworkbel/frontend-project-lvl2/maintainability">
+    <img alt="Maintainability" src="https://api.codeclimate.com/v1/badges/f72446949e592e8ca39c/maintainability">
+  </a>
+  <a href="https://codeclimate.com/github/evgeniyworkbel/frontend-project-lvl2/test_coverage">
+    <img alt="Maintainability" src="https://api.codeclimate.com/v1/badges/f72446949e592e8ca39c/test_coverage">
+  </a>
+</p>
 
 # Description
 

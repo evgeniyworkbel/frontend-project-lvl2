@@ -2,6 +2,7 @@
   <img src="assets/banner.png" alt="JSON and YAML data formats">
 </div>
 
+<br>
 
 <p align="center">
   <a href="https://github.com/evgeniyworkbel/frontend-project-lvl2/actions"><img alt="Actions Status" src="https://github.com/evgeniyworkbel/frontend-project-lvl2/workflows/hexlet-check/badge.svg"></a>

@@ -4,15 +4,9 @@
 
 
 <p align="center">
-  <a href="https://github.com/evgeniyworkbel/frontend-project-lvl2/actions" style="text-decoration:none">
-    <img alt="Actions Status" src="https://github.com/evgeniyworkbel/frontend-project-lvl2/workflows/hexlet-check/badge.svg">
-  </a>
-  <a href="https://codeclimate.com/github/evgeniyworkbel/frontend-project-lvl2/maintainability" style="text-decoration:none">
-    <img alt="Maintainability" src="https://api.codeclimate.com/v1/badges/f72446949e592e8ca39c/maintainability">
-  </a>
-  <a href="https://codeclimate.com/github/evgeniyworkbel/frontend-project-lvl2/test_coverage" style="text-decoration:none">
-    <img alt="Maintainability" src="https://api.codeclimate.com/v1/badges/f72446949e592e8ca39c/test_coverage">
-  </a>
+  <a href="https://github.com/evgeniyworkbel/frontend-project-lvl2/actions" style="text-decoration:none"><img alt="Actions Status" src="https://github.com/evgeniyworkbel/frontend-project-lvl2/workflows/hexlet-check/badge.svg"></a>
+  <a href="https://codeclimate.com/github/evgeniyworkbel/frontend-project-lvl2/maintainability" style="text-decoration:none"><img alt="Maintainability" src="https://api.codeclimate.com/v1/badges/f72446949e592e8ca39c/maintainability"></a>
+  <a href="https://codeclimate.com/github/evgeniyworkbel/frontend-project-lvl2/test_coverage" style="text-decoration:none"><img alt="Maintainability" src="https://api.codeclimate.com/v1/badges/f72446949e592e8ca39c/test_coverage"></a>
 </p>
 
 # Description
